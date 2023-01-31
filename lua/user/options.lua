@@ -5,8 +5,9 @@ vim.opt.cmdheight = 2                           -- more space in the neovim comm
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
-vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
-vim.opt.ignorecase = true                       -- ignore case in search patterns
+vim.opt.hlsearch = false                         -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true 
+vim.undodir = os.getenv("HOME") .. ".vim/undodir"                       -- ignore case in search patterns
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
@@ -19,11 +20,11 @@ vim.opt.swapfile = false                        -- creates a swapfile
 vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
 vim.opt.timeoutlen = 1000                       -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true                         -- enable persistent undo
-vim.opt.updatetime = 300                        -- faster completion (4000ms default)
+vim.opt.updatetime = 50                       -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true                        -- convert tabs to spaces
-vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
+vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.relativenumber = true                  -- set relative numbered lines
@@ -40,3 +41,13 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 vim.cmd [[ colorscheme zephyr ]]
+
+
+-- from thePrimeagen
+vim.opt.softtabstop = 4
+vim.undodir = os.getenv("HOME") .. ".vim/undodir"
+vim.opt.incsearch = true
+vim.opt.isfname:append("@-@")
+vim.opt.colorcolumn = "80"
+
+
