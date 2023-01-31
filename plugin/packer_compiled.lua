@@ -74,10 +74,26 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/home/oldboyz1985/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
+  },
+  ["nvim-treesitter"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/oldboyz1985/.local/share/nvim/site/pack/packer/opt/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/oldboyz1985/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["zephyr-nvim"] = {
+    loaded = true,
+    path = "/home/oldboyz1985/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
+    url = "https://github.com/glepnir/zephyr-nvim"
   }
 }
 
