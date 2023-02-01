@@ -38,17 +38,25 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
+    -- My pluggins
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    -- Colorschemes
     use { 'luisiacc/gruvbox-baby', branch = 'main' }
-    -- If you are using Packer
     use 'marko-cerovac/material.nvim'
     use 'folke/tokyonight.nvim'
     use({
