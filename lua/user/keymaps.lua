@@ -1,3 +1,5 @@
+--# selene: allow(undefined_variable)
+--# selene: allow(unscoped_variables)
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
@@ -77,12 +79,23 @@ vim.keymap.set("n", "<c-u>", "<c-u>zz") --Jump half page but cursor in middle.
 vim.keymap.set("n", "n", "nzzzv") -- search but keep that in middle.
 vim.keymap.set("n", "N", "Nzzzv") -- search but keep that in middle.
 vim.keymap.set("x", "<leader>p", [["_dP]]) -- Paste and substite by keep it in clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- My keymaps
+vim.keymap.set("n", "<leader>vs", "<cmd>:so ~/.config/nvim/init.lua<CR>")
+--Code-run
+vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })

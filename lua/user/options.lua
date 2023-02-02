@@ -1,4 +1,6 @@
 -- :help options
+--# selene: allow(undefined_variable)
+--# selene: allow(unscoped_variables)
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
@@ -49,3 +51,5 @@ vim.undodir = os.getenv("HOME") .. ".vim/undodir"
 vim.opt.incsearch = true
 vim.opt.isfname:append("@-@")
 vim.opt.colorcolumn = "80"
+--My options
+vim.opt.foldmethod="indent"
