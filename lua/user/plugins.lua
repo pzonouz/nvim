@@ -61,6 +61,14 @@ return require('packer').startup(function(use)
             require('gitsigns').setup()
         end
     }
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
     -- Colorschemes
     use { 'luisiacc/gruvbox-baby', branch = 'main' }
     use 'marko-cerovac/material.nvim'
