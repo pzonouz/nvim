@@ -165,9 +165,6 @@ return require("packer").startup(function(use)
 	--OrgMode
 	use({
 		"nvim-orgmode/orgmode",
-		config = function()
-			require("orgmode").setup({})
-		end,
 	})
 	use({
 		"akinsho/org-bullets.nvim",
@@ -183,6 +180,26 @@ return require("packer").startup(function(use)
 	})
 	use({ "michaelb/sniprun", run = "bash install.sh" })
 	use("dhruvasagar/vim-table-mode")
+	use({
+		"nvim-neorg/neorg",
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}, -- Loads default behaviour
+					["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+					["core.norg.dirman"] = { -- Manages Neorg workspaces
+						config = {
+							workspaces = {
+								notes = "~/notes",
+							},
+						},
+					},
+				},
+			})
+		end,
+		run = ":Neorg sync-parsers",
+		requires = "nvim-lua/plenary.nvim",
+	})
 	-- Colorschemes
 	use({ "luisiacc/gruvbox-baby", branch = "main" })
 	use("marko-cerovac/material.nvim")

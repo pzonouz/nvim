@@ -37,13 +37,12 @@ vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd [[colorscheme tokyonight-night]]
-
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
+vim.cmd([[colorscheme tokyonight-night]])
 
 -- from thePrimeagen
 vim.opt.softtabstop = 4
@@ -52,4 +51,7 @@ vim.opt.incsearch = true
 vim.opt.isfname:append("@-@")
 vim.opt.colorcolumn = "80"
 --My options
-vim.opt.foldmethod="indent"
+vim.opt.foldmethod = "indent"
+-- Orgmode
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"

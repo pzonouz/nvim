@@ -7,6 +7,7 @@ null_ls.setup({
         null_ls.builtins.formatting.prettier, --JS
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.diagnostics.tidy, --HTML
+        -- null_ls.builtins.formatting.cbfmt, --JS
         -- null_ls.builtins.diagnostics.stylelint, --CSS
         -- null_ls.builtins.completion.spell,
     },
