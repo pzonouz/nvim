@@ -76,21 +76,17 @@ return require("packer").startup(function(use)
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) --Buffer Managment
 	use({ -- Terminal
 		"akinsho/toggleterm.nvim",
-		-- tag = "*",
-		-- config = function()
-		-- require("toggleterm").setup()
-		-- end,
 	})
-	use({ --nvim-surrond
+	use({
+		--nvim-surrond
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("nvim-surround").setup({})
 		end,
 	})
-	use({ --nvim-autopairs
+	use({
+		--nvim-autopairs
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({})
@@ -98,40 +94,35 @@ return require("packer").startup(function(use)
 	})
 	use("mattn/emmet-vim")
 	use("p00f/nvim-ts-rainbow")
-	-- use({ --Lualine
-	-- 	"nvim-lualine/lualine.nvim",
-	-- 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	-- 	config = function()
-	-- 		require("lualine").setup()
-	-- 	end,
-	-- })
+	use({
+		--Lualine
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("lualine").setup()
+		end,
+	})
 	use("preservim/tagbar")
 	use("farmergreg/vim-lastplace")
 	use("vimwiki/vimwiki")
-	use({ --Zen-mode
+	use({
+		--Zen-mode
 		"folke/zen-mode.nvim",
 		config = function()
-			require("zen-mode").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("zen-mode").setup({})
 		end,
 	})
 	use("lukas-reineke/indent-blankline.nvim")
-	-- Lua
-	use({ --Trouble
+	use({
+		--Trouble
 		"folke/trouble.nvim",
 		requires = "nvim-tree/nvim-web-devicons",
 		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("trouble").setup({})
 		end,
 	})
-	use({ --TODO-Comments
+	use({
+		--TODO-Comments
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
@@ -146,7 +137,6 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"sudormrfbin/cheatsheet.nvim",
-
 		requires = {
 			{ "nvim-telescope/telescope.nvim" },
 			{ "nvim-lua/popup.nvim" },
@@ -164,15 +154,6 @@ return require("packer").startup(function(use)
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
 	--OrgMode
 	use({
-		"nvim-orgmode/orgmode",
-	})
-	use({
-		"akinsho/org-bullets.nvim",
-		config = function()
-			require("org-bullets").setup()
-		end,
-	})
-	use({
 		"lukas-reineke/headlines.nvim",
 		config = function()
 			require("headlines").setup()
@@ -180,33 +161,12 @@ return require("packer").startup(function(use)
 	})
 	use({ "michaelb/sniprun", run = "bash install.sh" })
 	use("dhruvasagar/vim-table-mode")
-	use({
-		"nvim-neorg/neorg",
-		config = function()
-			require("neorg").setup({
-				load = {
-					["core.defaults"] = {}, -- Loads default behaviour
-					["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-					["core.norg.dirman"] = { -- Manages Neorg workspaces
-						config = {
-							workspaces = {
-								notes = "~/notes",
-							},
-						},
-					},
-				},
-			})
-		end,
-		run = ":Neorg sync-parsers",
-		requires = "nvim-lua/plenary.nvim",
-	})
+	use("oberblastmeister/neuron.nvim")
+	use("nvim-telescope/telescope-media-files.nvim")
 	-- Colorschemes
+	use("folke/tokyonight.nvim")
 	use({ "luisiacc/gruvbox-baby", branch = "main" })
 	use("marko-cerovac/material.nvim")
-	use("folke/tokyonight.nvim") --Best one and using
-	use({
-		"glepnir/zephyr-nvim",
-		requires = { "nvim-treesitter/nvim-treesitter", opt = true },
-	})
 	use("Shatur/neovim-ayu")
+	use("navarasu/onedark.nvim")
 end)
