@@ -52,7 +52,7 @@ vim.opt.incsearch = true
 vim.opt.isfname:append("@-@")
 vim.opt.colorcolumn = "80"
 --My options
-vim.opt.foldmethod = "indent"
+-- vim.opt.foldmethod = "indent"
 -- Orgmode
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
