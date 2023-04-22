@@ -164,6 +164,21 @@ return require("packer").startup(function(use)
     use("oberblastmeister/neuron.nvim")
     use("nvim-telescope/telescope-media-files.nvim")
     use("manzeloth/live-server")
+    -- minimap
+    use({
+        "gorbit99/codewindow.nvim",
+        config = function()
+            local codewindow = require("codewindow")
+            codewindow.setup()
+            codewindow.apply_default_keybinds()
+        end,
+    })
+    use({
+        "anuvyklack/pretty-fold.nvim",
+        config = function()
+            require("pretty-fold").setup()
+        end,
+    })
     -- Colorschemes
     use("folke/tokyonight.nvim")
     use({ "luisiacc/gruvbox-baby", branch = "main" })
