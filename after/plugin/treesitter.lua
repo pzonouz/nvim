@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the four listed parsers should always be installed)
-	ensure_installed = { "c", "lua", "vim", "help" },
+	ensure_installed = { "c", "lua", "vim" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
@@ -10,7 +10,6 @@ require("nvim-treesitter.configs").setup({
 	auto_install = true,
 
 	-- List of parsers to ignore installing (for "all")
-	ignore_install = { "javascript" },
 
 	---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
 	-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -23,7 +22,7 @@ require("nvim-treesitter.configs").setup({
 		-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
 		-- the name of the parser)
 		-- list of language that will be disabled
-		disable = {},
+		disable = { "css" },
 		-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
 		--    disable = function(lang, buf)
 		--        local max_filesize = 100 * 1024 -- 100 KB
@@ -42,6 +41,10 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
+	-- nvim-ts-comment-string
+	-- context_commentstring = {
+	-- 	enable = true,
+	-- },
 })
 
 --Text opbjects
@@ -136,17 +139,34 @@ require("nvim-treesitter.configs").setup({
 })
 
 --Rainbow
-require("nvim-treesitter.configs").setup {
-  highlight = {
-      -- ...
-  },
-  -- ...
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  }
-}
+require("nvim-treesitter.configs").setup({
+	highlight = {
+		-- ...
+	},
+	-- ...
+	rainbow = {
+		enable = true,
+		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		max_file_lines = nil, -- Do not enable for files with more than n lines, int
+		-- colors = {}, -- table of hex strings
+		-- termcolors = {} -- table of colour name strings
+	},
+})
+require("nvim-treesitter.configs").setup({
+	context_commentstring = {
+		enable = true,
+		config = {
+			javascript = {
+				__default = "// %s",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = "// %s",
+				comment = "// %s",
+			},
+			c = { __default = "// %s", __multiline = "{/* %s */}" },
+			cpp = { __default = "// %s", __multiline = "{/* %s */}" },
+			css = { __default = "// %s", __multiline = "{/* %s */}" },
+		},
+	},
+})
